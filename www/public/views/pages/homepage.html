@@ -12,13 +12,14 @@
 <div class="container">
   <div class="row p-a-3">
     <div class="col-sm-6">
-      <h1>Hello World</h1>
-      <button type="button" class="btn btn-info-outline">Info</button>
+      <h1>{{ locations[loc].name }}</h1>
+      <button type="button" class="btn btn-info-outline"
+          ng-click= "fly()">fly</button>
     </div>
   </div>
 
 
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-sm-6">
       <div class="card card-block">
         <h3 class="card-title">Special title treatment</h3>
@@ -32,6 +33,12 @@
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
+    </div>
+  </div> -->
+
+  <div class="row m-a-3">
+    <div class="col-sm-12">
+      <div id="map"></div>
     </div>
   </div>
 </div>

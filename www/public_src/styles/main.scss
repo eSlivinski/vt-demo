@@ -1,8 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
+
 @import "../libs/bower_components/font-awesome/scss/font-awesome.scss";
 @import "../libs/bower_components/bootstrap/scss/bootstrap.scss";
-@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);
+@import "../../node_modules/mapbox-gl/dist/mapbox-gl.css";
+
 @import "variables.scss";
 
 * {
   font-family: 'Ubuntu Mono', sans-serif;
+}
+
+#map{
+  height: 400px;
 }
