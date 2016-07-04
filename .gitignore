@@ -13,3 +13,7 @@ www/public/styles/*.css
 www/public/fonts
 
 npm-debug.log
+
+www/.sass-cache/
+
+thingsToConsider.md

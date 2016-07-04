@@ -6,8 +6,6 @@ angular.module('vt-demo', ['ui.router'])
       .state('homepage', {
         url: '/',
         templateUrl: 'views/pages/homepage.html',
-        controller: function () {
-          console.log('Hello');
-        }
+        controller: function () {}
       });
   });

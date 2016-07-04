@@ -1,23 +1,19 @@
-module.exports = function(grunt) {
-
+module.exports = function (grunt) {
   var externalScriptFiles = grunt.file.readJSON('externalScripts.json');
 
   require('time-grunt')(grunt);
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    less: {
+    sass: {
       compile: {
-        options: {
-          cleancss: true
-        },
-        files: { "public/styles/app.css" : 'public_src/styles/main.less' }
+        files: { 'public/styles/app.css': 'public_src/styles/main.scss' }
       }
     },
     ngAnnotate: {
       main: {
         files: {
-          'grunt_tmp/angularScripts.js' : [
+          'grunt_tmp/angularScripts.js': [
             'public_src/scripts/main.js',
             'public_src/scripts/controllers/*.js',
             'public_src/scripts/factories/*.js',
@@ -34,18 +30,18 @@ module.exports = function(grunt) {
       },
       main: {
         files: {
-          'public/scripts/app.js' : ['public/scripts/app.js']
+          'public/scripts/app.js': ['public/scripts/app.js']
         }
       }
     },
     copy: {
       fontawesome: {
         files: [
-              { expand: true,
-                cwd: "public_src/libs/bower_components/font-awesome/",
-                src: "fonts/*",
-                dest: "public/"
-              }
+          { expand: true,
+            cwd: 'public_src/libs/bower_components/font-awesome/',
+            src: 'fonts/*',
+            dest: 'public/'
+          }
         ]
       }
     },
@@ -67,10 +63,10 @@ module.exports = function(grunt) {
     clean: {
       files: ['grunt_tmp/']
     },
-        // use tape to define our tests
-        // this is mostly for the back-end code.
-        // Front-end code is all handled by testling.
-        // Testling settings can be found in the package.json file.
+    // use tape to define our tests
+    // this is mostly for the back-end code.
+    // Front-end code is all handled by testling.
+    // Testling settings can be found in the package.json file.
     tape: {
       options: {
         pretty: true,
@@ -85,9 +81,9 @@ module.exports = function(grunt) {
         livereload: true,
         spawn: false
       },
-      less: {
-        files: ['public_src/styles/**/*.less'],
-        tasks: ['less']
+      sass: {
+        files: ['public_src/styles/**/*.scss'],
+        tasks: ['sass']
       },
       html: {
         files: ['public/index.html', 'public/views/**/*.html']
@@ -116,13 +112,13 @@ module.exports = function(grunt) {
         files: ['externalScripts.json', 'externalStyles.json'],
         tasks: ['clean', 'concat:libs', 'ngAnnotate', 'concat:app']
       },
-            // watch front-end code:
+      // watch front-end code:
       ngTests: {
         files: ['tests/public_src/**/*.js'],
         tasks: ['testling']
       },
 
-            // watch back-end code:
+      // watch back-end code:
       nodeTests: {
         files: ['server.js', 'routes/**/*.js', 'tests/routes/**/*.js'],
         tasks: ['tape']
@@ -133,7 +129,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-ng-annotate');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -141,6 +137,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-testling');
 
   grunt.registerTask('default', ['watch']);
-  grunt.registerTask('build', ['clean', 'less', 'copy:fontawesome', 'concat:libs', 'ngAnnotate', 'concat:app', 'uglify']);
+  grunt.registerTask('build', ['clean', 'sass', 'copy:fontawesome', 'concat:libs', 'ngAnnotate', 'concat:app', 'uglify']);
 
 };
