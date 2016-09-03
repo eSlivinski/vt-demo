@@ -1,6 +1,5 @@
 [
     "public_src/libs/bower_components/angular/angular.min.js",
     "public_src/libs/bower_components/angular-ui-router/release/angular-ui-router.min.js",
-    "public_src/libs/bower_components/lodash/lodash.js",
-    "node_modules/mapbox-gl/dist/mapbox-gl.js"
+    "public_src/libs/bower_components/lodash/lodash.js"
 ]

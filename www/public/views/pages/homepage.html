@@ -1,44 +1,31 @@
 <nav class="navbar navbar-light bg-faded">
   <div class="container">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#"> Editable Vector Tiles </a>
   </div>
 </nav>
-<!-- <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-3">Fluid jumbotron</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-  </div>
-</div>
-<div class="container">
-  <div class="row p-a-3">
-    <div class="col-sm-6">
-      <h1>{{ locations[loc].name }}</h1>
+
+  <div class="row m-a-3">
+    <div class="col-sm-12">
       <button type="button" class="btn btn-info-outline"
-          ng-click= "fly()">fly</button>
-    </div>
-  </div> -->
+          ng-click="toggleEditing()">
+        <i class="fa" aria-hidden="true"
+            ng-class="!editing ? 'fa-lock' : 'fa-unlock'"></i>
+      </button>
 
+      <span ng-repeat="geomType in mode.options"
+            ng-hide="!editing">
+        <button type="button" class="btn"
+            ng-click="draw(geomType)"
+            ng-class="mode.current === geomType ? 'btn-info' : 'btn-info-outline'">
+          {{ geomType }}
+        </button>
+      </span>
 
-  <!-- <div class="row">
-    <div class="col-sm-6">
-      <div class="card card-block">
-        <h3 class="card-title">Special title treatment</h3>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
     </div>
-    <div class="col-sm-6">
-      <div class="card card-block">
-        <h3 class="card-title">Special title treatment</h3>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div> -->
+  </div>
 
   <div class="row m-a-3">
     <div class="col-sm-12">
       <div id="map"></div>
     </div>
   </div>
-</div>
