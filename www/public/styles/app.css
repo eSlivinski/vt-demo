@@ -6,7 +6,6 @@
  */
 /* FONT PATH
  * -------------------------- */
-@import url(../../node_modules/mapbox-gl/dist/mapbox-gl.css);
 @font-face {
   font-family: 'FontAwesome';
   src: url("../fonts/fontawesome-webfont.eot?v=4.6.3");
